@@ -116,6 +116,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/save',
+    component: Layout,
+    children: [
+      {
+        path: 'save',
+        name: '备忘录',
+        component: () => import('@/views/save/save'),
+        meta: { title: '备忘录', icon: 'file' },
+        hidden: true
+      }
+    ]
+  },
+  {
     path: '/filedetail',
     component: Layout,
     children: [

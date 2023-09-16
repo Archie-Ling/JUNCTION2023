@@ -96,36 +96,19 @@ c-129 123 -177 152 -257 150 -30 -1 -54 0 -54 3 0 8 32 54 42 61 15 10 107 -9
       </svg> -->
       <div class="number">
         <div class="loginLogo">
-          <svg
-            t="1617798195314"
-            class="icon"
-            viewBox="0 0 1024 1024"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            p-id="2063"
-            width="16"
-            height="16"
-          >
-            <path
-              d="M502.28224 338.432m-234.496 0a234.496 234.496 0 1 0 468.992 0 234.496 234.496 0 1 0-468.992 0Z"
-              fill="#CAE4FF"
-              p-id="2064"
-            ></path>
+          <svg t="1617798195314" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="2063" width="16" height="16">
+            <path d="M502.28224 338.432m-234.496 0a234.496 234.496 0 1 0 468.992 0 234.496 234.496 0 1 0-468.992 0Z"
+              fill="#CAE4FF" p-id="2064"></path>
             <path
               d="M492.288 609.792c-160.256-0.512-289.792-130.048-289.792-289.792 0-160.768 129.024-291.84 289.792-294.4 160.256 0.512 289.792 130.048 289.792 289.792 0.512 161.28-129.024 291.84-289.792 294.4z m0-500.224c-113.664 0-205.824 92.16-205.824 205.824 0 113.664 92.16 205.824 205.824 205.824s205.824-92.16 205.824-205.824c0-113.664-92.16-205.824-205.824-205.824z"
-              fill="#0972E7"
-              p-id="2065"
-            ></path>
+              fill="#0972E7" p-id="2065"></path>
             <path
               d="M109.824 1013.248c-23.04 0-41.984-18.944-41.984-41.984v-16.896c1.024-236.544 192.512-427.52 428.544-428.544 23.04 0 41.984 18.944 41.984 41.984 0 23.04-18.944 41.984-41.984 41.984-189.952 1.024-343.552 154.624-344.576 344.576v12.8c0.512 24.064-17.92 44.032-41.984 46.08z"
-              fill="#0972E7"
-              p-id="2066"
-            ></path>
+              fill="#0972E7" p-id="2066"></path>
             <path
               d="M874.752 1009.152c-22.016 1.536-40.448-15.36-41.984-37.376v-17.408c-1.024-189.952-154.624-343.552-344.576-344.576-23.04 0-41.984-18.944-41.984-41.984 0-23.04 18.944-41.984 41.984-41.984 236.544 1.024 427.52 192.512 428.544 428.544v12.8c1.536 22.016-15.36 40.448-37.376 41.984h-4.608z"
-              fill="#0972E7"
-              p-id="2067"
-            ></path>
+              fill="#0972E7" p-id="2067"></path>
           </svg>
         </div>
         <div class="mui-input-row">
@@ -134,26 +117,14 @@ c-129 123 -177 152 -257 150 -30 -1 -54 0 -54 3 0 8 32 54 42 61 15 10 107 -9
       </div>
       <div class="password">
         <div class="loginLogo">
-          <svg
-            t="1617798249878"
-            class="icon"
-            viewBox="0 0 1024 1024"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            p-id="4874"
-            width="16"
-            height="16"
-          >
+          <svg t="1617798249878" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="4874" width="16" height="16">
             <path
               d="M826.547856 388.599575h-29.288257v-103.168029a285.316915 285.316915 0 1 0-570.633829 0v103.168029h-29.230942A114.28725 114.28725 0 0 0 83.279525 502.714877v406.940558a114.28725 114.28725 0 0 0 114.115303 114.115303h629.153028a114.28725 114.28725 0 0 0 114.115303-114.115303v-406.940558a114.28725 114.28725 0 0 0-114.115303-114.115302zM306.810254 285.316915a205.075115 205.075115 0 1 1 410.15023 0v103.168028H306.810254z m553.553789 624.739729a33.930818 33.930818 0 0 1-33.873502 33.873503H197.394828a33.930818 33.930818 0 0 1-33.873503-34.102765v-406.940558a33.930818 33.930818 0 0 1 33.873503-33.873503h629.153028a33.930818 33.930818 0 0 1 33.873503 33.873503z"
-              fill="#467CFD"
-              p-id="4875"
-            ></path>
+              fill="#467CFD" p-id="4875"></path>
             <path
               d="M512 553.66842a107.180119 107.180119 0 0 0-22.295757 212.067615v58.060674a22.467704 22.467704 0 1 0 44.935408 0v-56.16926-1.891414a107.180119 107.180119 0 0 0-22.295758-212.067615z m0 168.507781a61.327661 61.327661 0 1 1 61.327661-61.327662A61.384977 61.384977 0 0 1 512 722.176201z"
-              fill="#8BAEF7"
-              p-id="4876"
-            ></path>
+              fill="#8BAEF7" p-id="4876"></path>
           </svg>
         </div>
         <div class="mui-input-row mui-password">
@@ -164,9 +135,9 @@ c-129 123 -177 152 -257 150 -30 -1 -54 0 -54 3 0 8 32 54 42 61 15 10 107 -9
         <div><button type="button" class="loginBtn" @click="login">登录/注册</button></div>
         <div class="btn">
           <van-tabs v-model="active">
-            <van-tab title="管理登录"></van-tab>
-            <van-tab class="line" title="|"></van-tab>
             <van-tab title="用户登录"></van-tab>
+            <van-tab class="line" title="|"></van-tab>
+            <van-tab title="管理登录"></van-tab>
           </van-tabs>
 
           <!-- <button>管理</button>
@@ -200,18 +171,18 @@ export default {
           // document.querySelector('.loginBtn').innerText = '登录成功...'
           Notify({ type: 'success', message: '登录成功' })
           this.$router.push({ path: '/search' })
-        //   this.$store.dispatch('user/login', this.loginForm)
-        //     .then(() => {
-        //       alert(111)
-        //       Notify({ type: 'success', message: '登录成功' })
-        //       this.$router.push({ path: '/search' })
-        //     }).catch(() => {
-        //       Notify({ type: 'success', message: '登录成功' })
-        //     })
-        // } else {
-        //   console.log('error submit!!')
-        //   Notify({ type: 'danger', message: '登录失败' })
-        //   return false
+          //   this.$store.dispatch('user/login', this.loginForm)
+          //     .then(() => {
+          //       alert(111)
+          //       Notify({ type: 'success', message: '登录成功' })
+          //       this.$router.push({ path: '/search' })
+          //     }).catch(() => {
+          //       Notify({ type: 'success', message: '登录成功' })
+          //     })
+          // } else {
+          //   console.log('error submit!!')
+          //   Notify({ type: 'danger', message: '登录失败' })
+          //   return false
         }
       }, 1000)
     }
@@ -281,6 +252,9 @@ export default {
 .password,
 .number {
   position: relative;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
   margin-top: 20px;
 }
 
@@ -299,7 +273,12 @@ export default {
 
 .number>div:first-child,
 .password>div:first-child {
+  margin: 0 auto;
   font-weight: bold;
+}
+
+.mui-input-row {
+  margin: 0 auto;
 }
 
 .number>div:last-child>input,
@@ -307,7 +286,7 @@ export default {
   padding: 10px 15px 10px 35px;
   background-color: none;
   border: 0;
-  margin: 0;
+  margin: 0 auto;
   border-radius: 20px;
   font-size: smaller;
 }
@@ -349,6 +328,14 @@ export default {
     background-color: white;
   }
 
+  .password,
+  .number {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 20px;
+  }
+
   .login button {
     width: 50%;
   }
@@ -358,8 +345,8 @@ export default {
   }
 
   .login .btn {
-    width: 90%;
-    font-size: 12px;
+    width: 100%;
+    font-size: 10px;
   }
 }
 </style>
