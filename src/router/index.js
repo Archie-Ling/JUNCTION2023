@@ -13,6 +13,17 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/layout:who',
+    name: 'Layout',
+    props($route) { //! 这里的route可以用结构赋值，下面就不用写这么多了{params/quaery}
+      return {
+        who: $route.params.who
+      }
+    },
+    component: () => import('@/layout/index.vue'),
+    hidden: true
+  },
+  {
     path: '/register',
     component: Layout,
     // component: () => import('@/views/register/register'),
@@ -123,7 +134,7 @@ export const constantRoutes = [
         path: 'save',
         name: '备忘录',
         component: () => import('@/views/save/save'),
-        meta: { title: '备忘录', icon: 'file' },
+        meta: { title: '备忘录', icon: 'save' },
         hidden: true
       }
     ]
@@ -166,11 +177,11 @@ export const constantRoutes = [
         hidden: true
       },
       {
-        path:'chat',
-        name:'聊天界面',
-        component:()=>import('@/views/user/chat'),
-        meta:{title:'聊天界面',icon:'chat'},
-        hidden:true
+        path: 'chat',
+        name: '聊天界面',
+        component: () => import('@/views/user/chat'),
+        meta: { title: '聊天界面', icon: 'chat' },
+        hidden: true
       }
     ]
   },

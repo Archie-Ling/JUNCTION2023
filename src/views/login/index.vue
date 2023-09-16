@@ -134,7 +134,7 @@ c-129 123 -177 152 -257 150 -30 -1 -54 0 -54 3 0 8 32 54 42 61 15 10 107 -9
       <div class="login">
         <div><button type="button" class="loginBtn" @click="login">登录/注册</button></div>
         <div class="btn">
-          <van-tabs v-model="active">
+          <van-tabs v-model="active" @click.native="whoLogin">
             <van-tab title="用户登录"></van-tab>
             <van-tab class="line" title="|"></van-tab>
             <van-tab title="管理登录"></van-tab>
@@ -157,20 +157,52 @@ export default {
   name: 'Login',
   data() {
     return {
+      active: 0,
       loginForm: {
         user: '',
         passwd: ''
-      }
+      },
+      who: ''
     }
   },
   methods: {
+    whoLogin() {
+      if (this.active === 0) {
+        this.who = 'user'
+        this.$store.commit('who/SET_WHO', this.who)
+        console.log(this.$store)
+      } else {
+        this.who = 'manager'
+        this.$store.commit('who/SET_WHO', this.who)
+        alert(this.$store.state.who.who)
+      }
+    },
     login() {
       document.querySelector('.loginBtn').innerText = '登录中...'
       setTimeout(() => {
         if (this.loginForm.user === 'Jhon' && this.loginForm.passwd === '123456') {
           // document.querySelector('.loginBtn').innerText = '登录成功...'
           Notify({ type: 'success', message: '登录成功' })
-          this.$router.push({ path: '/search' })
+          console.log(this.who)
+          if (this.who === 'user') {
+            console.log('user')
+            this.$router.push({
+              name: '文献检索',
+              params: {
+                who: this.who
+              }
+            })
+          } else {
+            console.log('manager')
+            this.$router.push({
+              name: '文献检索',
+              params: {
+                who: this.who
+              }
+            })
+          }
+
+          // this.$router.push({ path: '/search' })
           //   this.$store.dispatch('user/login', this.loginForm)
           //     .then(() => {
           //       alert(111)
