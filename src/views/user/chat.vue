@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div class="chatBox-fastChat">
-                  <van-button class="fastChat" type="primary" @click="">今日数据</van-button>
+                  <van-button class="fastChat" type="primary" @click="fastChatEvent(woqu,hahaha)">今日数据</van-button>
                   <van-button class="fastChat" type="primary" @click="">今日数据</van-button>
                   <van-button class="fastChat" type="primary" @click="">今日数据</van-button>
               </div>
@@ -105,6 +105,15 @@
       this.InitChatInfo();
     },
     methods: {
+      fastChatEvent(msg,img){
+        let info={
+          time:"",
+          isMyText:false,
+          messageText:msg,
+          messageImg:img
+        }
+        this.thisChatInfo.messageList.push(info)
+      },
       InitChatInfo(){
         const id = this.$route.query.userId;
         this.chatInfo.forEach(info => {
@@ -116,11 +125,10 @@
       },
       getSend(){
         if(this.messages == ''){
-          vant.Toast('请输入咨询信息')
           return
         }
         let message={
-          time:Date.now,
+          time:Date.now().toString(),
           isMyText:true,
           messageText:this.messages,
           messageImg:""
@@ -130,7 +138,6 @@
       },
       getSends(){
         if(this.messages == ''){
-          vant.Toast('请输入咨询信息')
           return
         }
         let message={
