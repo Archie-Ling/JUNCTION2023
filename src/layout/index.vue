@@ -9,10 +9,9 @@
       <app-main />
       <div v-if="device==='mobile'">
         <van-tabbar  v-model="active">
-          <van-tabbar-item icon="search" @click="search">搜索文献</van-tabbar-item>
-          <van-tabbar-item icon="upgrade" @click="upload">上传文献</van-tabbar-item>
-          <van-tabbar-item icon="apps-o" @click="file">文献归档</van-tabbar-item>
-          <van-tabbar-item icon="user-o" @click="user">个人中心</van-tabbar-item>
+          <van-tabbar-item icon="points" @click="search">数据</van-tabbar-item>
+          <van-tabbar-item icon="setting-o" @click="file">调试</van-tabbar-item>
+          <van-tabbar-item icon="user-o" @click="user">智能助手</van-tabbar-item>
         </van-tabbar>
       </div>
       <el-footer v-if="device!='mobile'">
