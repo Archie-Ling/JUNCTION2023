@@ -7,7 +7,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="require('@/icons/svg/logo.png')" class="user-avatar">
+          <img :src="require('@/assets/login_images/junctai-removebg.png')" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -119,7 +119,7 @@ export default {
 
         .user-avatar {
           cursor: pointer;
-          width: 40px;
+          width: 120px;
           height: 40px;
           border-radius: 10px;
         }

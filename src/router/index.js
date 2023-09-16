@@ -40,7 +40,7 @@ export const constantRoutes = [
       path: 'search',
       name: '首页',
       component: () => import('@/views/search/search'),
-      meta: { title: '医疗文献检索系统', icon: '' },
+      meta: { title: 'JUNCTAI', icon: '' },
       hidden: true
     }]
   },
@@ -53,7 +53,7 @@ export const constantRoutes = [
         path: 'search',
         name: '文献检索',
         component: () => import('@/views/search/search'),
-        meta: { title: '文献检索', icon: 'search' }
+        meta: { title: '数据', icon: 'search' }
       }
     ]
   },
@@ -79,7 +79,7 @@ export const constantRoutes = [
         path: 'file',
         name: '归档',
         component: () => import('@/views/file/file'),
-        meta: { title: '文献归档', icon: 'file' }
+        meta: { title: '调试', icon: 'file' }
       }
     ]
   },
@@ -149,7 +149,7 @@ export const constantRoutes = [
         path: 'user',
         name: '用户详情',
         component: () => import('@/views/user/user'),
-        meta: { title: '用户详情', icon: 'user' },
+        meta: { title: '智能助手', icon: 'user' },
         hidden: true
       }
     ]
