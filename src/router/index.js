@@ -151,6 +151,13 @@ export const constantRoutes = [
         component: () => import('@/views/user/user'),
         meta: { title: '用户详情', icon: 'user' },
         hidden: true
+      },
+      {
+        path:'chat',
+        name:'聊天界面',
+        component:()=>import('@/views/user/chat'),
+        meta:{title:'聊天界面',icon:'chat'},
+        hidden:true
       }
     ]
   },
