@@ -263,6 +263,7 @@ export default {
 }
 </script>
 <style lang="scss">
+
 svg{
   vertical-align:middle;
 }
