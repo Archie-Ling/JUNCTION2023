@@ -1,71 +1,18 @@
 <template>
   <div id="app">
-    <!-- 头部导航栏 -->
-    <el-row class="tac">
-      <el-col :span="1">
-        <div><p>.</p></div>
-      </el-col>
-      <!-- 页面主题内容 -->
-      <el-col :span="22">
-        <h2>文献检索</h2>
-        <div class="content" style="color: white;">.</div>
-        <el-row>
-          <el-col :span="14"  >
-            <el-input v-model="searchText" placeholder="请输入搜索内容，或者需要AI推荐的关键词" /></el-col>
-          <el-col :span="2" offset="1">
-            <el-button type="primary" @keyup.enter="enterSearch()" @click="search()">搜索</el-button>
-          </el-col>
-          <el-col :span="2" offset="1">
-            <el-button type="primary" @keyup.enter="enterSearch()" @click="germinate()">推荐</el-button>
-          </el-col>
-        </el-row>
-        <el-divider />
-        <template v-if="tableData.length > 0">
-          <el-table :data="tableData" @row-click="handleRowClick">
-            <el-table-column prop="title" label="文章标题" />
-            <el-table-column prop="pdfPages" label="页数" />
-            <el-table-column prop="score" label="内容相关度" sortable />
-            <el-table-column prop="createtime" label="上传时间" sortable />
-            <el-table-column v-if="showAddressColumn" label="" width="0" prop="pdfId" />
-          </el-table>
-          <!-- 分页 每页显示数量size和总数total从后端获取 然后将后端传回的数据分页显示在表格中 -->
-          <el-pagination
-            :current-page="currentPage"
-            background
-            layout="prev, pager, next"
-            :total="this.total"
-            :page-size="this.pageSize"
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            style="text-align: center"
-          />
-        </template>
-
-        <template v-else>
-          <el-skeleton>
-            <template slot="template">
-              <div style="padding: 14px;">
-                <el-skeleton-item variant="p" style="width: 100%" />
-                <!--              eslint-disable-next-line vue/no-unused-vars -->
-                <div v-for=" n in 8" :key="n" style="margin:20px">
-                  <div style="display: flex; align-items: center;justify-content: space-between;">
-                    <el-skeleton-item variant="text" class="item" />
-                    <el-skeleton-item variant="text" class="item" />
-                    <el-skeleton-item variant="text" class="item" />
-                    <el-skeleton-item variant="text" class="item" />
-                  </div>
-                </div>
-              </div>
-            </template>
-          </el-skeleton>
-        </template>
-      </el-col>
-    </el-row>
+    <van-swipe style="height: 600px;" vertical loop=false>
+      <van-swipe-item style="height: 600px;"><pie-chart :pieData="chart1data" topTitle="能源消耗" centerTitle="总消耗：666kwh"/></van-swipe-item>
+      <van-swipe-item style="height: 600px;"><pie-chart :pieData="chart2data" topTitle="碳排放" centerTitle="总排放：666t"/></van-swipe-item>
+      <van-swipe-item style="height: 600px;"><line-chart/></van-swipe-item>
+    </van-swipe>
   </div>
 </template>
 <script>
 import axios from 'axios'
+import PieChart from '@/components/Charts/PieChart.vue'
+import LineChart from '@/components/Charts/LineChart.vue'
 export default {
+  components:{PieChart,LineChart},
   data() {
     return {
       searchText: '',
@@ -73,13 +20,94 @@ export default {
       currentPage: 1, // 当前页
       pageSize: 5, // 每页显示条数
       total: 20, // 总条数
-      showAddressColumn: false
+      showAddressColumn: false,
+      chart1data:[
+        {
+        value: 463,
+        name: "流程一"
+        },
+        {
+        value: 395,
+        name: "流程二"
+        },
+        {
+        value: 157,
+        name: "流程三"
+        },
+        {
+        value: 149,
+        name: "流程四"
+        },],
+      chart2data:[
+        {
+        value: 234,
+        name: "流程一"
+        },
+        {
+        value: 543,
+        name: "流程二"
+        },
+        {
+        value: 852,
+        name: "流程三"
+        },
+        {
+        value: 66,
+        name: "流程四"
+        },]
     }
   },
   created() {
     this.search()
   },
+  mounted(){
+    
+    this.$nextTick(()=>{
+    this.slideBanner()
+    });
+  },
   methods: {
+    slideBanner(){
+			var box = document.querySelector('.el-carousel__container');
+		    var startPoint = 0;
+			var stopPoint = 0;
+			var resetPoint =  function(){
+				startPoint = 0;
+				stopPoint = 0;
+			}
+		    box.addEventListener("touchstart",function(e){
+		        startPoint = e.changedTouches[0].pageY;
+		    });
+		    box.addEventListener("touchmove",function(e){
+		        stopPoint = e.changedTouches[0].pageY;
+		    });
+		   	box.addEventListener("touchend",function(e){
+		   		console.log("1："+startPoint);
+		   		console.log("2："+stopPoint);
+				if(stopPoint == 0 || startPoint - stopPoint == 0){
+					resetPoint();
+		   			return;
+		   		}
+		   		if(startPoint - stopPoint > 0){
+		   			resetPoint();
+		   			this.$refs.mycarousel.next();
+		   			return;
+		   		}
+		   		if(startPoint - stopPoint < 0){
+		   			resetPoint();
+            console.log(this.$refs.mycarousel);
+		   			this.$refs.mycarousel.prev();
+		   			return;
+		   		}
+		    });
+		},
+    handleSumChartData(data){
+      var sum=0;
+      data.forEach(item => {
+        sum+=item.value;
+      });
+      return sum;
+    },
     // 分页组件连接后端api
 
     // 表格行点击事件 并带参跳转到details.vue页面
