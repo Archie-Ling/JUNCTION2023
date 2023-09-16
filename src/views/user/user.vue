@@ -1,54 +1,20 @@
+
 <!-- 个人中心页面 展示用户头像,用户iduserId,手机号userPhone,用户积分userPoints -->
 <template>
   <div id="app">
-    <div class="user-profile">
+    <div class="user-profile" >
       <el-row class="tac">
         <el-col :span="1">
           <div><p style="color:white;">.</p></div>
         </el-col>
-        <!-- 页面主题内容 -->
-        <el-col :span="22">
-          <h2>个人中心</h2>
-          <el-divider />
-          <!--          <div class="content" style="color:white;">.</div>-->
-          <!-- 个人信息 -->
-          <el-row class="clock">
-            <el-row>
-              <!--            <el-col :span="1"><div><p style="color:white;">.</p></div></el-col>-->
-              <el-col :span="1" :xs="1"><div><p style="color:white;">.</p></div></el-col>
-              <el-col :span="5" :xs="4">
-                <div class="user-avatar">
-                  <el-avatar :size="150" :src="require('@/icons/svg/logo.png')" />
-                </div>
-              </el-col>
-              <el-col :span="1" :xs="8"><div><p style="color:white;">.</p></div></el-col>
-              <el-col :span="15" :xs="7">
-                <div class="zhan" style="height: 10px;"><p style="color:white;">.</p></div>
-                <div class="user-details"  >
-                  <div class="user-id">用户ID: {{ userInfo.userId }}</div><br>
-                  <!-- <div class="user-id">用户名: {{ userInfo.username }}</div><br> -->
-                  <div class="user-phone">手机号: {{ userInfo.userPhone }}</div><br>
-                  <div class="user-points"> 积  分  : {{ userInfo.userPoints }}</div><br>
-                  <div class="user-points"> 容  量  : {{ userInfo.userCapacity }}</div>
-                </div>
-                <div class="zhan" style="height: 10px;"><p style="color:white;">.</p></div>
-                <!-- 购买积分按钮 点击后跳转到购买页面buy.vue -->
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="7" :xs="10"><div><p style="color:white;">.</p></div></el-col>
-              <el-col :span="2" :xs="6">
-              <el-button  size="mini">
-                <router-link to="/buy/buy">购买积分</router-link>
-              </el-button>
-            </el-col>
-              <el-col :span="2" :xs="4">
-                <el-button  size="mini">
-                  <router-link to="/buy/buy">退出登录</router-link>
-                </el-button>
-              </el-col></el-row>
-          </el-row>
-        </el-col>
+        
+        <MessageBox v-for="(message) in messageList" 
+        :userId=message.userId
+        :userName="message.userName"
+        :message="message.message"
+        :avatar="message.avatar"
+        :numOfNewMessage="message.numOfNewMessage"
+        />
 
       </el-row>
     </div>
@@ -57,47 +23,165 @@
 </template>
 
 <script>
-import axios from 'axios'
+import MessageBox from './messageBox.vue'
 export default {
+  components:{MessageBox },
   data() {
     return {
-      userInfo: {
-        username: '用户12542',
-        userId: '',
-        userPhone: '',
-        userPoints: ''
-      }
+      messageList:[
+          {
+            userId:1,
+            userName:"昨日机器A数据",
+            message:"耗电数据：123123123123123",
+            avatar:"",
+            numOfNewMessage:6,
+          },
+          {
+            userId:2,
+            userName:"设计迭代方案",
+            message:"方案1：xxxxxx",
+            avatar:"",
+            numOfNewMessage:6,
+          },
+      ]
       // dialogVisible: false
     }
   },
   created() {
-    this.getUserInfo()
   },
   methods: {
-    // 使用axios 连接后端api，获取用户信息 /user/echo/{userId}
-    getUserInfo() {
-      const userId = 3
-      const url = 'http://192.168.43.61:8081/user/echo/' + userId
-      axios.get(url).then(res => {
-        this.userInfo = res.data.data
-      })
-    },
-    // 点击编辑资料按钮，可以跳出对话框，修改用户名，手机号
-    editUserInfo() {
-      this.$message({
-        message: '修改成功',
-        type: 'success'
-      })
-    }
   }
 }
 </script>
-<style>
+<style scoped>
 .clock{
   /*background-color: #005dba;*/
   border-radius: 10px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
-
+#chat .chatBox {
+            width: 100%;
+            height: auto;
+            margin: 2.5rem auto 0;
+      margin-top: 0;
+            background-color: #fff;
+            overflow: hidden;
+            border-radius: 0.625rem;
+        }
+ 
+        #chat .chatBox-top {
+            width: 100%;
+            height: 3.75rem;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            background-color: #2B3D63;
+        }
+ 
+        #chat .chatBox-top-imgBox {
+            margin-left: 1.25rem;
+        }
+ 
+        #chat .chatBox-top-text {
+            margin-left: 1.25rem;
+            font-size: 1rem;
+            color: #fff;
+        }
+ 
+        #chat .chatBox-middle {
+            width: 100%;
+            height: 31.25rem;
+            background-color: #fff;
+            border-bottom: 0.0625rem solid #2B3D63;
+        }
+ 
+        #chat .chatBox-middle {
+            width: 100%;
+            height: 31.25rem;
+            background-color: #fff;
+        }
+ 
+        #chat .chatBox-infoDesk {
+            width: 100%;
+            height: 10rem;
+        }
+ 
+        #chat .chatBox-textarea {
+            width: 100%;
+            height: 6.25rem;
+        }
+ 
+        #chat .chatBox-sendOut {
+            margin-top: 0.625rem;
+            width: 100%;
+            height: 3.125rem;
+            text-align: right;
+        }
+ 
+        #chat .sendOut {
+            padding: 0 1.25rem;
+            height: 2.1875rem;
+            margin: 0.3125rem 1.25rem 0 0;
+        }
+ 
+        #chat .chatInfo {
+            width: 94%;
+            height: 94%;
+            margin: 1.25rem auto;
+            overflow: auto;
+        }
+ 
+        #chat .chatUser-box {
+            width: 100%;
+            margin-bottom: 6px;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        
+        #chat .chatUser-box-img {
+            display: flex;
+        }
+ 
+        #chat .chatUser-info {
+            margin: 0 1.25rem;
+        }
+ 
+        #chat .chatUser-info-name {
+            font-size: 0.875rem;
+            color: #888;
+            display: flex;
+            flex-direction: row;
+        }
+ 
+        #chat .nowDate {
+            margin: 0 0.625rem;
+        }
+ 
+        #chat .chatUser-info-text {
+            margin-top: 0.3125rem;
+            max-width: 20rem;
+            padding: 0.5rem;
+            background-color: #E8E8E8;
+            border-radius: 0.5rem;
+            float: left;
+            table-layout:fixed;
+            word-break: break-all;
+            overflow:hidden;
+        }
+ 
+        #chat .chatUser-info-text span{
+            font-size: 0.9375rem;
+            line-height: 1.5625rem;
+        }
+        #chat .chatUser-box1 {
+            flex-direction: row-reverse;
+        }
+        #chat .chatUser-info-name1 {
+            flex-direction: row-reverse;
+        }
+        #chat .chatUser-info-text1 {
+            float: right;
+      }
 </style>
